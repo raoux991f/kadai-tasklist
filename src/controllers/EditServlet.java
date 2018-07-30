@@ -38,12 +38,12 @@ public class EditServlet extends HttpServlet {
 
 		em.close();
 
-		request.setAttribute("tasks",  m);
+		request.setAttribute("task",  m);
 		request.setAttribute("_token", request.getSession().getId());
 		request.getSession().setAttribute("tasks_id",  m.getId());
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
-	    rd.foward(request, response);
+		 rd.forward(request, response);
 	}
 
 }
