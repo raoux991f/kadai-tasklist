@@ -38,6 +38,7 @@ public class IndexServlet extends HttpServlet {
 
         List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
                                    .getResultList();
+        response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 
         em.close();
 
