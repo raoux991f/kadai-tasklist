@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Tasks;
+import models.Task;
 import utils.DBUtil;
 
 
@@ -36,7 +36,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        List<Tasks> tasks = em.createNamedQuery("getAllTasks", Tasks.class)
+        List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
                                    .getResultList();
 
         em.close();
