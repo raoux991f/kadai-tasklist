@@ -15,6 +15,7 @@ import models.Task;
 import utils.DBUtil;
 
 
+
 /**
  * Servlet implementation class IndexServlet
  */
@@ -38,7 +39,6 @@ public class IndexServlet extends HttpServlet {
 
         List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
                                    .getResultList();
-        response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 
         em.close();
 
@@ -47,8 +47,4 @@ public class IndexServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
         rd.forward(request, response);
     }
-
-
-	   	}
-
-
+}
